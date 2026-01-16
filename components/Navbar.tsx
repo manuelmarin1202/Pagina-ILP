@@ -61,6 +61,7 @@ export function Navbar() {
               { name: "Faja Ecológica 🌱", path: "/faja-reutilizable", special: true },
               { name: "Catálogo", path: "/catalogo" },
               { name: "Servicios", path: "/servicios" },
+              { name: "Nosotros", path: "/nosotros" },
             ].map((link) => (
               <Link
                 key={link.path}
@@ -119,6 +120,7 @@ export function Navbar() {
           <Link href="/faja-reutilizable" onClick={() => setIsMobileMenuOpen(false)} className="text-green-400">Faja Ecológica</Link>
           <Link href="/catalogo" onClick={() => setIsMobileMenuOpen(false)}>Catálogo</Link>
           <Link href="/servicios" onClick={() => setIsMobileMenuOpen(false)}>Servicios</Link>
+          <Link href="/nosotros" onClick={() => setIsMobileMenuOpen(false)}>Nosotros</Link>
           
           <div className="w-12 h-1 bg-white/10 rounded-full my-4" />
           
