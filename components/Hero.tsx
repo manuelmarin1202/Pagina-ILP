@@ -31,22 +31,7 @@ export function Hero() {
             Optimizamos tu operación con rampas móviles, montacargas de alto rendimiento y servicios de maquila especializada. Distribuidores oficiales de <strong>PlusForce</strong>.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link 
-              href="/catalogo" 
-              className="bg-[#ed9b19] hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg text-center"
-            >
-              Ver Catálogo 2025
-            </Link>
-            <a 
-              href="https://wa.me/51938231707"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold py-4 px-8 rounded-full backdrop-blur-sm transition-all text-center flex items-center justify-center gap-2"
-            >
-              <span>💬</span> Contactar Asesor
-            </a>
-          </div>
+          
         </div>
       </div>
     </section>

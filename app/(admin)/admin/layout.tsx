@@ -22,17 +22,25 @@ export default async function AdminDashboardLayout({
         
         {/* Logo y Título */}
         <div className="flex items-center gap-6 mb-4 md:mb-0">
-           <div className="relative w-24 h-8">
-             <Image src="/logo-ilp.png" alt="ILP" fill className="object-contain brightness-0 invert" />
-           </div>
            
+           <Link href="/admin">
+            <div className="relative w-24 h-8">
+              <Image src="/logo-ilp.png" alt="ILP" fill className="object-contain brightness-0 invert" />
+            </div>
+           </Link>
            {/* MENÚ DE NAVEGACIÓN (Pestañas) */}
            <div className="flex gap-1 bg-black/20 p-1 rounded-lg">
              <Link 
-               href="/admin" 
+               href="/admin/products" 
                className="px-4 py-1.5 rounded-md text-sm font-medium hover:bg-white/10 transition-colors focus:bg-[#ed9b19]"
              >
                Productos
+             </Link>
+             <Link 
+               href="/admin/services" 
+               className="px-4 py-1.5 rounded-md text-sm font-medium hover:bg-white/10 transition-colors focus:bg-[#ed9b19]"
+             >
+               Servicios
              </Link>
              <Link 
                href="/admin/clients" 
@@ -40,6 +48,7 @@ export default async function AdminDashboardLayout({
              >
                Clientes
              </Link>
+             
            </div>
         </div>
         
