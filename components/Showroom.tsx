@@ -90,7 +90,7 @@ export async function Showroom() {
                 <a 
                   href="https://forms.gle/tu-link-formulario" 
                   target="_blank"
-                  className="block w-full bg-[#232755] hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition-colors text-center shadow-md hover:shadow-lg"
+                  className="block w-full bg-ilp-blue hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition-colors text-center shadow-md hover:shadow-lg"
                 >
                   Registrar mi visita gratis
                 </a>

@@ -47,7 +47,7 @@ export async function Clients() {
         {/* VAGÓN 2: Idéntico al 1, le sigue inmediatamente */}
         <div className="flex animate-scroll whitespace-nowrap min-w-full shrink-0 items-center justify-around gap-16 px-8">
           {clients.map((client) => (
-            <div key={`${client.id}-clone`} className="relative w-32 h-16 flex-shrink-0 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 cursor-pointer">
+            <div key={`${client.id}-clone`} className="relative w-32 h-16 shrink-0 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 cursor-pointer">
                <Image 
                  src={supabase.storage.from("catalog").getPublicUrl(client.logo_path).data.publicUrl}
                  alt={client.name}

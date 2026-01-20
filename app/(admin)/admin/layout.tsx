@@ -48,7 +48,12 @@ export default async function AdminDashboardLayout({
              >
                Clientes
              </Link>
-             
+             <Link
+              href="/admin/cotizador"
+              className="px-4 py-1.5 rounded-md text-sm font-medium hover:bg-white/10 transition-colors focus:bg-[#ed9b19]"
+             >
+              Cotizador
+             </Link>
            </div>
         </div>
         

@@ -4,7 +4,7 @@ import { Package, Users, BarChart } from "lucide-react"
 export default function AdminDashboard() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-black text-[#232755] mb-2">Panel de Control</h1>
+      <h1 className="text-4xl font-black text-ilp-blue mb-2">Panel de Control</h1>
       <p className="text-gray-500 mb-12">Bienvenido al sistema de gestión de ILP Soluciones.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

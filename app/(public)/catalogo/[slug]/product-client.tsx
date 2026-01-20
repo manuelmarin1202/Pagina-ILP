@@ -119,9 +119,7 @@ export function ProductClient({ product, variants }: { product: any, variants: a
               <span>Cotizar este Modelo</span>
             </a>
             
-            <p className="text-center text-xs text-gray-400 mt-4">
-              *Respuesta inmediata por parte de nuestros ingenieros.
-            </p>
+            
 
           </div>
         </div>

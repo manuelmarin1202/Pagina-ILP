@@ -87,9 +87,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <Phone className="w-5 h-5" /> Cotizar por WhatsApp
               </a>
               
-              <div className="text-center text-sm text-gray-400">
-                Respuesta promedio: 15 minutos
-              </div>
+              
             </div>
           </div>
 
