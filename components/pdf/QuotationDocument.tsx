@@ -157,6 +157,7 @@ export const QuotationDocument = ({ data }: { data: QuotationData }) => {
           <Text style={styles.recipientLabel}>Señores:</Text>
           <Text style={[styles.recipientText, { fontSize: 12, fontWeight: 'bold' }]}>{data.client.name.toUpperCase()}</Text>
           <Text style={styles.recipientText}>RUC: {data.client.ruc}</Text>
+          {data.client.address && <Text style={styles.recipientText}>Dirección: {data.client.address}</Text>} 
           <Text style={styles.recipientText}>Atención: {data.client.contact}</Text>
         </View>
         <View style={styles.refBox}>
@@ -169,12 +170,12 @@ export const QuotationDocument = ({ data }: { data: QuotationData }) => {
           <Text style={styles.bodyText}>Atentamente,</Text>
           <Text style={styles.sigName}>Ing. Manuel Marín Leonardo</Text>
           <Text style={styles.sigRole}>Gerente Comercial</Text>
-          <Text style={styles.sigRole}>933 833 062</Text>
+          <Text style={styles.sigRole}>938 231 707</Text>
           <Text style={styles.sigRole}>ILP Soluciones Logística S.A.C.</Text>
         </View>
         <View style={styles.footer}>
           <Text style={styles.footerText}>Calle Sibelius # 148 Oficina 102 - San Borja | Panamericana Sur Km 38 BSF</Text>
-          <Text style={styles.footerText}>Cel: 933 833 062 | www.ilpsolucioneslogistica.com.pe</Text>
+          <Text style={styles.footerText}>Cel: 938 231 707| www.ilpsolucioneslogistica.com.pe</Text>
         </View>
       </Page>
 
@@ -236,7 +237,7 @@ export const QuotationDocument = ({ data }: { data: QuotationData }) => {
           {item.youtube && (
             <Link src={item.youtube} style={{ textDecoration: 'none' }}>
                <View style={styles.videoButton}>
-                 <Text style={styles.videoText}>▶ VER VIDEO DEMOSTRATIVO</Text>
+                 <Text style={styles.videoText}>VER VIDEO DEMOSTRATIVO</Text>
                </View>
             </Link>
           )}

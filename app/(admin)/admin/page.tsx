@@ -36,6 +36,15 @@ export default function AdminDashboard() {
           <p className="text-gray-500">Administrar logos y testimonios destacados.</p>
         </Link>
 
+        {/* TARJETA COTIZADOR */}
+        <Link href="/admin/cotizador" className="group bg-white p-8 rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-[#ed9b19] transition-all">
+          <div className="w-14 h-14 bg-pink-50 text-[#ed9b19] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#ed9b19] group-hover:text-white transition-colors">
+            <Package size={32} />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Cotizador</h2>
+          <p className="text-gray-500">Administrar precios y características del cotizador.</p>
+        </Link>
+
         {/* TARJETA WEB (Ir al sitio) */}
         <Link href="/" target="_blank" className="group bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:bg-white hover:shadow-lg transition-all">
           <div className="w-14 h-14 bg-white border border-gray-200 text-gray-400 rounded-xl flex items-center justify-center mb-6">
