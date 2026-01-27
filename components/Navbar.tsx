@@ -59,8 +59,8 @@ export function Navbar() {
           {/* Quitamos 'Inicio' para limpiar el menú */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 flex-none">
             {[
-              { name: "Faja Reutilizable", path: "/faja-reutilizable", special: true },
-              { name: "Productos", path: "/catalogo" },
+              { name: "Faja Reutilizable", path: "/faja-reutilizable", special: false},
+              { name: "Equipos", path: "/catalogo" },
               { name: "Servicios", path: "/servicios" },
               { name: "Nosotros", path: "/nosotros" },
             ].map((link) => (

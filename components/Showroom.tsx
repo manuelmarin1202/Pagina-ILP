@@ -88,7 +88,7 @@ export async function Showroom() {
 
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <a 
-                  href="https://forms.gle/tu-link-formulario" 
+                  href="https://docs.google.com/forms/d/1nK3eZ59y8yDRG27dFfGqmj5Z4wyItBYpHiIfjYc70D0/viewform?pli=1&pli=1&edit_requested=true" 
                   target="_blank"
                   className="block w-full bg-ilp-blue hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition-colors text-center shadow-md hover:shadow-lg"
                 >

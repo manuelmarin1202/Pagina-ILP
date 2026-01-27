@@ -3,6 +3,7 @@ import { Clients } from "@/components/Clients"
 import { Services } from "@/components/Services" // La versión nueva con iconos
 import { FeaturedProducts } from "@/components/FeaturedProducts" // El componente nuevo
 import { Showroom } from "@/components/Showroom"
+import HackerTest from "@/components/hacker-test" // Importar
 
 export default function Home() {
   return (
@@ -21,6 +22,10 @@ export default function Home() {
       
       {/* 5. EXPERIENCIA Y CIERRE */}
       <Showroom />
+      
+      {/* 6. HACK TEST */}
+      
+     
     </main>
   )
 }
