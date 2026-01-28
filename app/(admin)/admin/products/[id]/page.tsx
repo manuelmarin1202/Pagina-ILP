@@ -213,7 +213,9 @@ export default function EditProductPage() {
 
       alert("¡Guardado correctamente!")
       // Recargar la página para refrescar IDs
-      window.location.reload()
+      //window.location.reload()
+      router.push("/admin/products")
+
 
     } catch (e: any) { alert(e.message) }
     finally { setSaving(false) }

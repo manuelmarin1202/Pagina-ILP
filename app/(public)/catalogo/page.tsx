@@ -82,7 +82,7 @@ export default async function CatalogPage({ searchParams }: Props) {
             <CategoryPill slug="maquinaria-elevacion" label="Maquinaria" />
             <CategoryPill slug="infraestructura-carga" label="Infraestructura" />
             <CategoryPill slug="aditamentos" label="Aditamentos" />
-            <CategoryPill slug="equipos-almacen-eco" label="Eco-Logística" />
+            <CategoryPill slug="equipos-almacen-eco" label="Equipos de almacén y Eco-Logística" />
             <CategoryPill slug="merchandising" label="Merchandising" />
           </div>
         )}
@@ -93,14 +93,14 @@ export default async function CatalogPage({ searchParams }: Props) {
             const imageUrl = product.image_path 
               ? `${STORAGE_URL}${product.image_path}` 
               : null
-
+            const isFaja = product.slug.includes('faja') || product.name.toLowerCase().includes('faja')
             // @ts-ignore
             const catName = product.categories?.name || "Equipo"
-
+            const productLink = isFaja ? '/faja-reutilizable' : `/catalogo/${product.slug}`
             return (
               <Link 
                 key={product.id} 
-                href={`/catalogo/${product.slug}`}
+                href={productLink}
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
               >
                 {/* Imagen */}

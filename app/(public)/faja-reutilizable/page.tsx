@@ -1,6 +1,8 @@
 import { createClient } from "@/utils/supabase/server"
 import Image from "next/image"
 import { HeroButtons } from "./hero-buttons" // Importamos el componente que creamos arriba
+import { FajaCalculator } from "@/components/faja-calculator" // <--- IMPORTAMOS
+import { FajaCatalogGrid } from "@/components/faja-catalog-grid" // <--- NUEVO
 import { 
   CheckCircle2, 
   Leaf, 
@@ -8,7 +10,9 @@ import {
   Timer, 
   Truck,
   Warehouse,
-  Factory
+  Factory,
+  Ruler, // Para medidas
+  Repeat // Para vida útil
 } from "lucide-react"
 
 export default async function FajaPage() {
@@ -17,6 +21,20 @@ export default async function FajaPage() {
   // 1. OBTENER VIDEO DE SUPABASE
   const videoUrl = supabase.storage.from("catalog").getPublicUrl("demo-faja.mp4").data.publicUrl
   const posterUrl = supabase.storage.from("catalog").getPublicUrl("poster-faja.jpg").data.publicUrl
+
+  const { data: variants } = await supabase
+    .from("product_variants")
+    .select(`
+      id,
+      capacity,
+      price,
+      technical_specs,
+      products!inner(slug)
+    `)
+    .eq("products.slug", "faja-reutilizable-ecologica")
+    .order("price", { ascending: true })
+
+  
 
   return (
     <div className="bg-white">
@@ -118,56 +136,38 @@ export default async function FajaPage() {
         </div>
       </section>
 
-      {/* --- 4. COMPARATIVA DE AHORRO --- */}
-      <section className="py-20 bg-gray-50">
+      {/* SECCIÓN COMPARATIVA CON CALCULADORA REAL */}
+      <section className="py-20 bg-gray-50" id="calculadora">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-[#232755] rounded-3xl p-6 md:p-12 text-white shadow-xl relative overflow-hidden">
-            {/* Efecto de fondo */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-[120px] opacity-20 pointer-events-none" />
-            
-            <div className="text-center mb-12 relative z-10">
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">Matemática Simple: Faja vs. Stretch Film</h2>
-              <p className="text-blue-200">Análisis de costo operativo por Pallet</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-              {/* STRETCH FILM */}
-              <div className="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10">
-                <h3 className="text-xl font-bold text-red-400 mb-6 flex items-center gap-2">
-                  ❌ Stretch Film (Plástico)
-                </h3>
-                <ul className="space-y-4 text-gray-300 text-sm mb-8">
-                  <li className="flex justify-between"><span>Costo Rollo:</span> <span>S/ 25.25</span></li>
-                  <li className="flex justify-between"><span>Pallets por Rollo:</span> <span>12</span></li>
-                  <li className="flex justify-between"><span>Usos:</span> <span>1 (Se bota)</span></li>
-                </ul>
-                <div className="pt-6 border-t border-white/10">
-                  <p className="text-xs text-gray-400 uppercase">Costo por Pallet</p>
-                  <p className="text-4xl font-black text-white">S/ 2.10</p>
-                </div>
-              </div>
-
-              {/* FAJA ILP */}
-              <div className="bg-white text-[#232755] p-6 md:p-8 rounded-2xl border-4 border-green-500 relative transform md:scale-105 shadow-2xl">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide whitespace-nowrap">
-                  Opción Recomendada
-                </div>
-                <h3 className="text-xl font-bold text-green-700 mb-6 flex items-center gap-2">
-                  ✅ Faja Reutilizable
-                </h3>
-                <ul className="space-y-4 text-gray-600 text-sm mb-8">
-                  <li className="flex justify-between"><span>Costo Unidad:</span> <span>S/ 198.00</span></li>
-                  <li className="flex justify-between"><span>Reutilización:</span> <span>600 veces</span></li>
-                  <li className="flex justify-between"><span>Residuos:</span> <span>0%</span></li>
-                </ul>
-                <div className="pt-6 border-t border-gray-200">
-                  <p className="text-xs text-gray-500 uppercase">Costo por Pallet</p>
-                  <p className="text-5xl font-black text-[#232755]">S/ 0.33</p>
-                  <p className="text-sm font-bold text-green-600 mt-2">¡84% de Ahorro!</p>
-                </div>
-              </div>
-            </div>
+          <div className="text-center mb-10">
+             <h2 className="text-3xl font-bold text-[#232755]">Calcula tu Retorno de Inversión</h2>
+             <p className="text-gray-500">Selecciona el modelo que te interesa y mira cuánto ahorrarás.</p>
           </div>
+
+          {/* AQUÍ RENDERIZAMOS LA CALCULADORA */}
+          {variants && variants.length > 0 ? (
+            <FajaCalculator variants={variants} />
+          ) : (
+            <p className="text-center text-red-500">Cargando datos de precios...</p>
+          )}
+
+        </div>
+      </section>
+
+      {/* SECCIÓN MODELOS (Grid Inteligente con Agrupación) */}
+      <section className="py-24 bg-white" id="modelos">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="text-green-600 font-bold tracking-widest text-sm uppercase">Catálogo Técnico</span>
+            <h2 className="text-3xl md:text-5xl font-black text-[#232755] mt-2">Modelos Disponibles</h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+              Selecciona la medida exacta para tu operación. Los precios varían según las dimensiones.
+            </p>
+          </div>
+
+          {/* AQUÍ ESTÁ EL CAMBIO IMPORTANTE */}
+          {variants && <FajaCatalogGrid variants={variants} />}
+          
         </div>
       </section>
 
