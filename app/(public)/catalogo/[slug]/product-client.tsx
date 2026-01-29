@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Check, FileText, Phone, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { FileText, Phone, ArrowRight, Home } from "lucide-react" // Agregué el icono Home por si te gusta
 
 // URL BASE DEL STORAGE (Ajústala si tu proyecto es diferente, pero suele ser esta)
 const STORAGE_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/catalog/`
@@ -23,10 +24,31 @@ export function ProductClient({ product, variants }: { product: any, variants: a
     <div className="bg-white pt-32 pb-20 min-h-screen">
       <div className="container mx-auto px-4">
         
-        {/* BREADCRUMB SIMPLE */}
-        <div className="mb-8 text-sm text-gray-400 flex items-center gap-2">
-          <span>Catálogo</span> <ArrowRight size={12} /> <span className="text-[#232755] font-bold">{product.name}</span>
-        </div>
+        {/* --- BREADCRUMB (MIGA DE PAN) MEJORADO --- */}
+        <nav className="mb-8 text-sm text-gray-500 flex items-center gap-2">
+          
+          {/* Enlace al Catálogo General */}
+          <Link 
+            href="/catalogo" 
+            className="hover:text-[#ed9b19] hover:underline transition-colors flex items-center gap-1"
+          >
+            <Home size={14} /> Catálogo
+          </Link>
+          
+          <ArrowRight size={12} className="text-gray-300" />
+          
+          {/* (Opcional) Si tu producto tiene el nombre de la categoría disponible, podrías ponerlo aquí */}
+          {/* <Link href={`/catalogo?categoria=${product.category_slug}`} className="hover:text-[#ed9b19]">
+              {product.category_name}
+            </Link> 
+            <ArrowRight size={12} className="text-gray-300" />
+          */}
+
+          {/* Producto Actual (No es link porque ya estás aquí) */}
+          <span className="text-[#232755] font-bold truncate max-w-[200px] md:max-w-none">
+            {product.name}
+          </span>
+        </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
